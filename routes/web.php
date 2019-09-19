@@ -22,3 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/','index\IndexController@index');//前台首页
+
+//崔健
+Route::prefix('alipay')->group(function(){
+	Route::get('pay','Alipay\AlipayController@pay'); //支付方法
+	Route::get('return_url','Alipay\AlipayController@aliReturn');//同步通知
+});
