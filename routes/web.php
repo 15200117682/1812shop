@@ -17,12 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-<<<<<<< HEAD
-Route::get('/home', 'HomeController@index')->name('home');
-=======
-Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','index\IndexController@index');//前台首页
->>>>>>> 98894a092720e97d851d71e1fcb871cbd1a9dfca
+
+Route::prefix('admin')->group(function(){
+    Route::prefix('index')->group(function(){
+        Route::get('index','AdminController@index'); //后台首页
+        Route::get('login','LoginController@login');//后台登陆
+    });
+    Route::prefix('realName')->group(function(){
+        Route::get('realNameRequest','RealNameController@realNameRequest'); //实名认证请求管理
+        Route::post('realNameRequestDo','RealNameController@realNameRequestDo'); //实名认证处理
+    });
+});
