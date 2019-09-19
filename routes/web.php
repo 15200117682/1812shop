@@ -17,12 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-<<<<<<< HEAD
-Route::get('/home', 'HomeController@index')->name('home');
-=======
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/','index\IndexController@index');//前台首页
->>>>>>> 98894a092720e97d851d71e1fcb871cbd1a9dfca
