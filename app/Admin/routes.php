@@ -12,4 +12,10 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('admin.home');
 
+    $router->resource('/users', UsersController::class);      //用户管理
+
+    $router->resource('/goods', GoodsController::class);     //商品管理
+
+    $router->resource('/cate', CateController::class);  //分类管理
+
 });
