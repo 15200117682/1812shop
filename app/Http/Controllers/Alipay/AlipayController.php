@@ -25,7 +25,7 @@ class AlipayController extends Controller
     {
         $this->app_id = '2016093000628169';
         $this->gate_way = 'https://openapi.alipaydev.com/gateway.do';
-        $this->notify_url = "";
+        $this->notify_url = "";//异步通知地址
         $this->return_url = asset("alipay/return_url");
     }
     
