@@ -8,21 +8,12 @@ use App\Http\Controllers\Controller;
 class RegisterController extends Controller
 {
 	/**
-<<<<<<< HEAD
-	 * 注册视图页面
-	 * @author dongxin
-	 * @Date   2019-09-19
-	 * @email  1261335491@qq.com
-	 * @return [type]            [description]
-	 */
-=======
 	* 注册视图页面
 	* @author dongxin
 	* @Date   2019-09-19
 	* @email  1261335491@qq.com
 	* @return [type]            [description]
 	*/
->>>>>>> login
     public function register()
     {
     	return view('login/register');
@@ -33,10 +24,6 @@ class RegisterController extends Controller
     	$u_name = request('u_name');
     	$u_email = request('u_email');
     	$u_pwd = request('u_pwd');
-<<<<<<< HEAD
-=======
         $status = 1;
-        
->>>>>>> login
     }
 }
