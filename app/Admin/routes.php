@@ -15,4 +15,6 @@ Route::group([
     $router->resource('/users', UsersController::class);          //用户管理
 
     $router->resource('/cate', CateController::class);          //分类管理
+
+    $router->resource('/brand', BrandController::class);  //品牌管理
 });
