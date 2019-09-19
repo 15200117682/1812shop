@@ -28,3 +28,6 @@ Route::prefix('alipay')->group(function(){
 	Route::get('pay','Alipay\AlipayController@pay'); //支付方法
 	Route::get('return_url','Alipay\AlipayController@aliReturn');//同步通知
 });
+
+//订单部分
+Route::get('order_show','Order\OrderController@order_show');  //订单展示
