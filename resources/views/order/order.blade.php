@@ -297,43 +297,7 @@
 					<div class="col s12">
 						<ul class="collapsible" data-collapsible="accordion">
 							<li>
-								<div class="collapsible-header active"><h5>1 - 付款方法</h5></div>
-								<div class="collapsible-body">
-									<h6>以客人或注册的身份结账</h6>
-									<form action="#" class="checkout-radio">
-										<p>
-											<input type="radio" class="with-gap" id="guest-checkout" name="group1">
-											<label for="guest-checkout"><span>客人结账</span></label>
-										</p>
-										<p>
-											<input type="radio" class="with-gap" id="register" name="group1">
-											<label for="register"><span>注册</span></label>
-										</p>
-									</form>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis sunt</p>
-									<a href="" class="btn button-default">CONTINUE</a>
-									<div class="checkout-login">
-										<div class="row">
-											<form class="col s12">
-												<h6>登录</h6>
-												<p>Lorem ipsum dolor sit amet.</p>
-												<div class="input-field">
-													<h5>用户名/邮箱</h5>
-													<input type="text" class="validate" required>
-												</div>
-												<div class="input-field">
-													<h5>密码</h5>
-													<input type="password" class="validate" required>
-												</div>
-												<a href=""><h6>忘记密码 ?</h6></a>
-												<a href="" class="btn button-default">登录</a>
-											</form>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="collapsible-header"><h5>2 - 票据信息</h5></div>
+								<div class="collapsible-header"><h5>1 - 订单信息</h5></div>
 								<div class="collapsible-body">
 									<div class="billing-information">
 										<form action="#">
@@ -374,74 +338,9 @@
 									</div>
 								</div>
 							</li>
+							
 							<li>
-								<div class="collapsible-header"><h5>3 - 配送信息</h5></div>
-								<div class="collapsible-body">
-									<div class="shipping-information">
-										<form action="#">
-											<div class="input-field">
-												<h5>Name*</h5>
-												<input type="text" class="validate" required>
-											</div>
-											<div class="input-field">
-												<h5>Email*</h5>
-												<input type="email" class="validate" required>
-											</div>
-											<div class="input-field">
-												<h5>Company Name</h5>
-												<input type="text" class="validate">
-											</div>
-											<div class="input-field">
-												<h5>Address*</h5>
-												<input type="text" class="validate" required>
-											</div>
-											<div class="input-field">
-												<h5>Town/City*</h5>
-												<input type="text" class="validate" required>
-											</div>
-											<div class="input-field">
-												<h5>State/Country*</h5>
-												<input type="text" class="validate" required>
-											</div>
-											<div class="input-field">
-												<h5>Portalcode/ZIP*</h5>
-												<input type="number" class="validate" required>
-											</div>
-											<div class="input-field">
-												<h5>Phone*</h5>
-												<input type="number" class="validate" required>
-											</div>
-											<a href="" class="btn button-default">CONTINUE</a>
-										</form>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="collapsible-header"><h5>4 - 支付方式</h5></div>
-								<div class="collapsible-body">
-									<div class="payment-mode">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur provident repellat</p>
-										<form action="#" class="checkout-radio">
-												<div class="input-field">
-													<input type="radio" class="with-gap" id="bank-transfer" name="group1">
-													<label for="bank-transfer"><span>Bank Transfer</span></label>
-												</div>
-												<div class="input-field">
-													<input type="radio" class="with-gap" id="cash-on-delivery" name="group1">
-													<label for="cash-on-delivery"><span>Cash on Delivery</span></label>
-												</div>
-												<div class="input-field">
-													<input type="radio" class="with-gap" id="online-payments" name="group1">
-													<label for="online-payments"><span>Online Payments</span></label>
-												</div>
-	
-											<a href="" class="btn button-default">CONTINUE</a>
-										</form>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="collapsible-header"><h5>5 - 订单审核</h5></div>
+								<div class="collapsible-header"><h5>2 - 订单审核</h5></div>
 								<div class="collapsible-body">
 									<div class="order-review">
 										<div class="row">
