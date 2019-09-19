@@ -17,12 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-<<<<<<< HEAD
 Route::get('/home', 'HomeController@index')->name('home');
-=======
-Route::get('/home', 'HomeController@index')->name('home');
-
-//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/','index\IndexController@index');//前台首页
->>>>>>> 98894a092720e97d851d71e1fcb871cbd1a9dfca
+
+Route::prefix('index')->group(function(){
+    Route::get('register','login\RegisterController@register');//前台注册
+    Route::post('register_do','login\RegisterController@register_do');//前台注册执行入库
+});
