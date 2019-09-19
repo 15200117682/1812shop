@@ -22,5 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','index\IndexController@index');//前台首页
 
 Route::prefix('index')->group(function(){
+<<<<<<< HEAD
 	Route::get('register','login\RegisterController@register');//前台注册
+=======
+    Route::get('register','login\RegisterController@register');//前台注册
+    Route::post('register_do','login\RegisterController@register_do');//前台注册执行入库
+>>>>>>> login
 });
