@@ -8,7 +8,7 @@
         </div>
         <div class="register">
             <div class="row">
-                <form class="col s12" action="{{url('index/register_do')}}" method="post">
+                <form class="col s12" action="{{url('register_do')}}" method="post">
                     @csrf
                     <div class="input-field">
                         <input type="text" class="validate" placeholder="用户名" required name="u_name">
