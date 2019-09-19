@@ -40,11 +40,12 @@ class AlipayController extends Controller
     public function pay(Request $request)
     {
         $order = $request->all();
-        $sum = $order['sum'];
-        $oid = $order['oid'];
         if (!isset($sum) || !isset($oid)) {
         	echo "参数不对,格式你懂得!";die;
         }
+        $sum = $order['sum'];
+        $oid = $order['oid'];
+      
         // file_put_contents(storage_path('logs/alipay.log'),"\nqqqq\n",FILE_APPEND);
         // die();
         //验证订单状态 是否已支付 是否是有效订单
