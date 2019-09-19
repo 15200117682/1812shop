@@ -17,17 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-<<<<<<< HEAD
-=======
 
 Route::get('/home', 'HomeController@index')->name('home');
 
->>>>>>> 290900ceacac0c6cc7fe526007d6b300a8c1e5a1
 
-//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','index\IndexController@index');//前台首页
 
-<<<<<<< HEAD
 Route::prefix('admin')->group(function(){
     Route::prefix('index')->group(function(){
         Route::get('index','AdminController@index'); //后台首页
@@ -38,10 +33,12 @@ Route::prefix('admin')->group(function(){
         Route::post('realNameRequestDo','RealNameController@realNameRequestDo'); //实名认证处理
     });
 });
-=======
 //崔健
 Route::prefix('alipay')->group(function(){
 	Route::get('pay','Alipay\AlipayController@pay'); //支付方法
 	Route::get('return_url','Alipay\AlipayController@aliReturn');//同步通知
 });
->>>>>>> 290900ceacac0c6cc7fe526007d6b300a8c1e5a1
+
+
+//订单部分
+Route::get('order_show','Order\OrderController@order_show');  //订单展示
