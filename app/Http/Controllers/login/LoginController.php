@@ -55,7 +55,7 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-    	$request->session()->flush();
-    	echo "<script>alert('拜拜');location.href='login'</script>";die;
+        $request->session()->flush();
+    	return "<script>alert('拜拜');location.href='login'</script>";
     }
 }
