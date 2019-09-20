@@ -36,7 +36,7 @@ Route::prefix('admin')->group(function(){
 });
 //崔健
 Route::prefix('alipay')->group(function(){
-	Route::get('pay','Alipay\AlipayController@pay'); //支付方法
+	Route::any('pay','Alipay\AlipayController@pay'); //支付方法,测试先用any,杀青时改为post
 	Route::get('return_url','Alipay\AlipayController@aliReturn');//同步通知
 });
 
