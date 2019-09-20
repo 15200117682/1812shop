@@ -27,7 +27,7 @@
 	<div class="navbar-top">
 		<!-- site brand	 -->
 		<div class="site-brand">
-			<a href="index.html"><h1>Mstore</h1></a>
+			<a href="{{url('/')}}"><h1>Mstore</h1></a>
 		</div>
 		<!-- end site brand	 -->
 		<div class="side-nav-panel-right">
@@ -41,13 +41,17 @@
 		<ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
 			<li class="profil">
 				<img src="img/profile.jpg" alt="">
-				<h2>John Doe</h2>
+				@if(Session::get('u_name') == "")
+				<h2>未登录</h2>
+				@else
+				<h2>{{Session::get('u_name')}}</h2>
+				@endif
 			</li>
 			<li><a href="setting.html"><i class="fa fa-cog"></i>Settings</a></li>
 			<li><a href="about-us.html"><i class="fa fa-user"></i>About Us</a></li>
 			<li><a href="contact.html"><i class="fa fa-envelope-o"></i>Contact Us</a></li>
-			<li><a href="login.html"><i class="fa fa-sign-in"></i>Login</a></li>
-			<li><a href="register.html"><i class="fa fa-user-plus"></i>Register</a></li>
+			<li><a href="{{url('login')}}"><i class="fa fa-sign-in"></i>Login</a></li>
+			<li><a href="{{url('register')}}"><i class="fa fa-user-plus"></i>Register</a></li>
 		</ul>
 	</div>
 	<!-- end side nav right-->
@@ -56,7 +60,7 @@
 	<div class="navbar-bottom">
 		<div class="row">
 			<div class="col s2">
-				<a href="index.html"><i class="fa fa-home"></i></a>
+				<a href="{{url('/')}}"><i class="fa fa-home"></i></a>
 			</div>
 			<div class="col s2">
 				<a href="wishlist.html"><i class="fa fa-heart"></i></a>
