@@ -40,6 +40,8 @@ Route::prefix('alipay')->group(function(){
 	Route::get('return_url','Alipay\AlipayController@aliReturn');//同步通知
 });
 
-
 //订单部分
-Route::get('order_show','Order\OrderController@order_show');  //订单展示
+Route::prefix('order_code')->group(function(){
+    Route::get('order_show','Order\OrderController@order_show');  //订单展示
+    Route::get('create','Order\OrderController@order_show');  //订单展示
+});
