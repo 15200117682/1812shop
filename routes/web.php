@@ -19,7 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::get('/','index\IndexController@index');//前台首页
+<<<<<<< HEAD
 
 
 
@@ -30,7 +32,14 @@ Route::prefix('cart')->group(function () {
 
 // 董鑫
 Route::get('register','login\RegisterController@register');//前台注册
+=======
+Route::get('register','login\RegisterController@register');//前台注册视图
+>>>>>>> e1c0078f8e1b8b79b5afa012020aef02039c0530
 Route::post('register_do','login\RegisterController@register_do');//前台注册执行入库
+Route::get('login','login\LoginController@login');//登陆视图
+Route::post('login_do','login\LoginController@login_do');//登录验证
+Route::get('logout','login\LoginController@logout');//退出登录
+
 
 Route::prefix('admin')->group(function(){
     Route::prefix('index')->group(function(){
@@ -45,7 +54,7 @@ Route::prefix('admin')->group(function(){
 
 //崔健
 Route::prefix('alipay')->group(function(){
-	Route::get('pay','Alipay\AlipayController@pay'); //支付方法
+	Route::any('pay','Alipay\AlipayController@pay'); //支付方法,测试先用any,杀青时改为post
 	Route::get('return_url','Alipay\AlipayController@aliReturn');//同步通知
 });
 
