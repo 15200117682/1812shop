@@ -36,6 +36,10 @@ Route::get('login','login\LoginController@login');//登陆视图
 Route::post('login_do','login\LoginController@login_do');//登录验证
 Route::get('logout','login\LoginController@logout');//退出登录
 
+// 登录中间件,有需要登录才能使用的功能,把路由往这里面放
+Route::middleware(['loginMiddleware'])->group(function () {
+    
+});
 
 Route::prefix('admin')->group(function(){
     Route::prefix('index')->group(function(){
@@ -54,7 +58,10 @@ Route::prefix('alipay')->group(function(){
 	Route::get('return_url','Alipay\AlipayController@aliReturn');//同步通知
 });
 
-
 //订单部分
-Route::get('order_show','Order\OrderController@order_show');  //订单展示
+
+Route::prefix('order_code')->group(function(){
+    Route::get('order_show','Order\OrderController@order_show');   //订单展示
+    Route::get('create','Order\OrderController@order_show');  //订单展示
+});
 

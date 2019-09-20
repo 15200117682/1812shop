@@ -16,5 +16,7 @@ Route::group([
 
     $router->resource('/cate', CateController::class);          //分类管理
 
-    $router->resource('/brand', BrandController::class);  //品牌管理
+    $router->resource('/brand', BrandController::class);         //品牌管理
+
+    $router->resource('/goods', GoodsController::class);      //商品管理
 });
