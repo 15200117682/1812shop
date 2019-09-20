@@ -21,7 +21,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/','index\IndexController@index');//前台首页
-Route::get('register','login\RegisterController@register');//前台注册视图
+
+
+
+Route::prefix('cart')->group(function () {
+    Route::get('cart_list','Cart\CartController@cart_list');//购物车页面
+});
+
+
+// 董鑫
+Route::get('register','login\RegisterController@register');//前台注册
 Route::post('register_do','login\RegisterController@register_do');//前台注册执行入库
 Route::get('login','login\LoginController@login');//登陆视图
 Route::post('login_do','login\LoginController@login_do');//登录验证
@@ -42,6 +51,7 @@ Route::prefix('admin')->group(function(){
         Route::post('realNameRequestDo','RealNameController@realNameRequestDo'); //实名认证处理
     });
 });
+
 //崔健
 Route::prefix('alipay')->group(function(){
 	Route::any('pay','Alipay\AlipayController@pay'); //支付方法,测试先用any,杀青时改为post
@@ -51,3 +61,4 @@ Route::prefix('alipay')->group(function(){
 
 //订单部分
 Route::get('order_show','Order\OrderController@order_show');  //订单展示
+
