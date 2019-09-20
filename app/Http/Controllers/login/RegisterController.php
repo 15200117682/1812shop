@@ -28,9 +28,20 @@ class RegisterController extends Controller
      */
     public function register_do()
     {
+        // 接值
     	$u_name = request('u_name');
     	$u_email = request('u_email');
     	$u_pwd = request('u_pwd');
+        // 验证用户名邮箱唯一
+        $name_only = UsersModel::where('u_name',$u_name)->first();
+        $email_only = UsersModel::where('u_email',$u_email)->first();
+        if(!empty($name_only)){
+            echo "<script>alert('该用户名已被注册');history.go(-1)</script>";die;
+        }
+        if(!empty($email_only)){
+            echo "<script>alert('该邮箱已被注册');history.go(-1)</script>";die;
+        }
+        // 入库
         $res = UsersModel::create([
             'u_name' => $u_name,
             'u_email' => $u_email,
