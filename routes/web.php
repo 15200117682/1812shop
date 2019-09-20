@@ -54,11 +54,14 @@ Route::prefix('admin')->group(function(){
 
 //崔健
 Route::prefix('alipay')->group(function(){
-	Route::any('pay','Alipay\AlipayController@pay'); //支付方法,测试先用any,杀青时改为post
+	Route::any('pay','Alipay\AlipayController@pay'); //阿里支付方法,测试先用any,杀青时改为post
 	Route::get('return_url','Alipay\AlipayController@aliReturn');//同步通知
 });
 
-
 //订单部分
-Route::get('order_show','Order\OrderController@order_show');  //订单展示
+
+Route::prefix('order_code')->group(function(){
+    Route::get('order_show','Order\OrderController@order_show');   //订单展示
+    Route::get('create','Order\OrderController@order_show');  //订单展示
+});
 
