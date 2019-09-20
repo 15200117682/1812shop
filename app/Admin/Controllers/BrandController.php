@@ -44,10 +44,12 @@ class BrandController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new BrandModel);
+        $www=$_SERVER["SERVER_NAME"];
+        $http=$_SERVER["REQUEST_SCHEME"];
 
         $grid->column('b_id', __('品牌id'));
         $grid->column('b_name', __('品牌名称'));
-        $grid->column('b_logo', __('品牌logo'))->image("http://www.1812shop.com/uploads/",100,100);
+        $grid->column('b_logo', __('品牌logo'))->image($http."://".$www."/uploads/",100,100);
 
         $grid->column('b_describe', __('品牌描述'));
         $grid->column('status', __('状态'))->display(function ($status){
