@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+//mjj
 Route::get('/','index\IndexController@index');//前台首页
 // 董鑫
 Route::get('register','login\RegisterController@register');//前台注册
