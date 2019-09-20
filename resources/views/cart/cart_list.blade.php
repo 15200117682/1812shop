@@ -8,6 +8,7 @@
 			<div class="pages-head">
 				<h3>CART</h3>
 			</div>
+
 			<div class="content">
 				<div class="cart-1">
 					<div class="row">

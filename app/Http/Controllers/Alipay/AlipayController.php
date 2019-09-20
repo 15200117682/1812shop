@@ -39,17 +39,23 @@ class AlipayController extends Controller
      */
     public function pay(Request $request)
     {
-        $order = $request->all();
-        if (!isset($sum) || !isset($oid)) {
-        	echo "参数不对,格式你懂得!";die;
+        $data = $request->all();
+        // dd($data);die;
+        if (!isset($data['sum']) || !isset($data['oid'])) {
+            echo "参数错误,格式你懂得!";die;
         }
-        $sum = $order['sum'];
-        $oid = $order['oid'];
+        
+        $sum = $data['sum'];  //订单总金额
+        $oid = $data['oid'];  //订单号
       
+        if (empty($sum) || empty($oid)) {
+            echo "参数不能为空,格式你懂得!";die;
+        }
+       
         // file_put_contents(storage_path('logs/alipay.log'),"\nqqqq\n",FILE_APPEND);
         // die();
         //验证订单状态 是否已支付 是否是有效订单
-        //$order_info = OrderModel::where(['oid'=>$oid])->first()->toArray();
+        //$order_info = OrderModel::where(['oid'=>$oid])->first();
         //判断订单是否已被支付
         // if($order_info['is_pay']==1){
         //     die("订单已支付，请勿重复支付");
