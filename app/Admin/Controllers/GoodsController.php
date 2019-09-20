@@ -47,9 +47,12 @@ class GoodsController extends AdminController
     {
         $grid = new Grid(new GoodsModel);
 
+        $www=$_SERVER["SERVER_NAME"];
+        $http=$_SERVER["REQUEST_SCHEME"];
+
         $grid->column('g_id', __('商品id'));
         $grid->column('g_name', __('商品名称'));
-        $grid->column('g_img', __('商品图片'))->image("http://www.1812shop.com/uploads/",100,100);
+        $grid->column('g_img', __('商品图片'))->image($http."://".$www."/uploads/",100,100);
 
         $grid->column('g_describe', __('商品描述'));
         $grid->column('g_price', __('商品定价'));
