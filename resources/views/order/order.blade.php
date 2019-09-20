@@ -302,11 +302,11 @@
 									<div class="billing-information">
 										<form action="#">
 											<div class="input-field">
-												<h5>Name*</h5>
+												<h5>姓名*</h5>
 												<input type="text" class="validate" required>
 											</div>
 											<div class="input-field">
-												<h5>Email*</h5>
+												<h5>邮箱*</h5>
 												<input type="email" class="validate" required>
 											</div>
 											<div class="input-field">
@@ -330,7 +330,7 @@
 												<input type="number" class="validate" required>
 											</div>
 											<div class="input-field">
-												<h5>Phone*</h5>
+												<h5>电话*</h5>
 												<input type="number" class="validate" required>
 											</div>
 											<a href="" class="btn button-default">CONTINUE</a>
@@ -371,18 +371,6 @@
 													</div>
 												</div>
 												<div class="divider"></div>
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>数量</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<input type="text" value="1">
-														</div>
-													</div>
-												</div>
 												<div class="divider"></div>
 												<div class="cart-details">
 													<div class="col s5">
@@ -414,18 +402,6 @@
 									<div class="order-review final-price">
 										<div class="row">
 											<div class="col s12">
-												<div class="cart-details">
-													<div class="col s8">
-														<div class="cart-product">
-															<h5>Sub Total</h5>
-														</div>
-													</div>
-													<div class="col s4">
-														<div class="cart-product">
-															<span>$26.00</span>
-														</div>
-													</div>
-												</div>
 												<div class="cart-details">
 													<div class="col s8">
 														<div class="cart-product">
