@@ -8,4 +8,6 @@ class UsersModel extends Model
 {
     protected $table="user_users";
     public $primaryKey="u_id";
+    protected $guarded = [];
 }
+

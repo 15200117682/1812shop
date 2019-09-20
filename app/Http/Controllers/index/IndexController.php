@@ -9,6 +9,7 @@ class IndexController extends Controller
 {
     public function index()
     {
+    	echo session('u_id');die;
     	return view('index/index');
     }
 }

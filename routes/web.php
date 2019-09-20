@@ -19,10 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::get('/','index\IndexController@index');//前台首页
-// 董鑫
-Route::get('register','login\RegisterController@register');//前台注册
+Route::get('register','login\RegisterController@register');//前台注册视图
 Route::post('register_do','login\RegisterController@register_do');//前台注册执行入库
+Route::get('login','login\LoginController@login');//登陆视图
+Route::post('login_do','login\LoginController@login_do');//登录验证
 
 Route::prefix('admin')->group(function(){
     Route::prefix('index')->group(function(){
