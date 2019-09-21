@@ -437,7 +437,7 @@
             <div class="content">
                 <h4>PRODUCT BUNDLE</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-                <button class="btn button-default">SHOP NOW</button>
+                <button class="btn button-default"><a href="index/productlist">SHOP NOW</a></button>
             </div>
         </div>
     </div>
@@ -511,5 +511,17 @@
     <!-- loader -->
     <div id="fakeLoader"></div>
     <!-- end loader -->
-
+    <script src="/index/js/jquery.min.js"></script>
+    <script>
+      // $(document).on("click",".goods_lists",function(){
+      //   $.ajax({
+      //       url:'{{url("index/productlist")}}',
+      //       type:'get',
+      //       dataType:'json',
+      //       success:function(res){
+      //           console.log(res);
+      //       }
+      //   })
+      // })
+    </script>
 @endsection

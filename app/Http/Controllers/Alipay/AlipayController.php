@@ -41,12 +41,12 @@ class AlipayController extends Controller
     {
         $data = $request->all();
         // dd($data);die;
-        if (!isset($data['sum']) || !isset($data['oid'])) {
+        if (!isset($data['order_amount']) || !isset($data['order_rand'])) {
             echo "参数错误,格式你懂得!";die;
         }
         
-        $sum = $data['sum'];  //订单总金额
-        $oid = $data['oid'];  //订单号
+        $sum = $data['order_amount'];  //订单总金额
+        $oid = $data['order_rand'];  //订单号
       
         if (empty($sum) || empty($oid)) {
             echo "参数不能为空,格式你懂得!";die;
@@ -57,14 +57,18 @@ class AlipayController extends Controller
         //验证订单状态 是否已支付 是否是有效订单
         //$order_info = OrderModel::where(['oid'=>$oid])->first();
         //判断订单是否已被支付
-        // if($order_info['is_pay']==1){
+        // if($order_info['order_pay']==1){
         //     die("订单已支付，请勿重复支付");
         // }
-        //判断订单是否已被删除
-        // if($order_info['is_delete']==1){
-        //     die("订单已被删除，无法支付");
+        //判断订单是否为有效订单
+        // if(empty($order_info)){
+        //     die("订单为无效订单，无法支付");
         // }
-        // $oid = time().mt_rand(1000,1111);  //订单编号
+        // 判断订单是否过期
+        // if ($order_info['status'] == 0) {
+        //     die("订单已过期，无法支付");
+        // }
+
         //业务参数
         $bizcont = [
             'subject'           => '1812shop--' .$oid,
@@ -208,29 +212,23 @@ class AlipayController extends Controller
      */
     public function aliReturn()
     {
-       //获取订单号
-       // $oid = $_GET['out_trade_no'];
-       // //修改订单状态
-       // DB::table('order')->where('oid',$oid)->update([
-       //          'status'=>1,
-       //      ]);
-
-       // header("Refresh:2;url=/home/orderlist");
+        // //获取订单号
+        // $oid = $_GET['out_trade_no'];
+        // //修改订单状态
+        // $res = DB::table('order')->where('order_rand',$oid)->update([
+        //          'status'=>1,
+        //      ]);
+        // if (!$res) {
+        //     echo "订单状态修改失败";die;
+        // }
+        //验签
+        //     if(!$this->verify($_GET)){
+        //         die('簽名失敗');
+        //     }
        echo "订单： ".$_GET['out_trade_no'] . ' 支付成功，正在跳转到订单详情';
-//        echo '<pre>';print_r($_GET);echo '</pre>';die;
-//        //验签 支付宝的公钥
-     
-//        //验证交易状态
-//        if($_GET['']){
-//
-//        }
+       // header("Refresh:2;url=/home/orderlist");//调到
+       // echo '<pre>';print_r($_GET);echo '</pre>';die;
 
-//      if(!$this->verify($_GET)){
-//             die('簽名失敗');
-//      }
-
-//        //处理订单逻辑
-//        $this->dealOrder($_GET);
     }
     /**
      * 异步通知
@@ -256,11 +254,29 @@ class AlipayController extends Controller
             $log_str .= " Sign OK!<<<<< \n\n";
             file_put_contents('logs/alipay.log',$log_str,FILE_APPEND);
         }
+
+        $log_str = '>>>> ' . date('Y-m-d H:i:s');
         //验证订单交易状态
-   
+        if ($data['trade_status'] == "TRADE_SUCCESS") {
+            $log_str .= " TRADE SUCCESS!<<<<< \n\n";//交易成功
+            file_put_contents('logs/alipay.log',$log_str,FILE_APPEND);
+        }else{
+            $log_str .= " TRADE Failed!<<<<< \n\n";//交易失败
+            file_put_contents('logs/alipay.log',$log_str,FILE_APPEND);
+        }
         //处理订单逻辑
+        $res = DB::table('order_detail')->where('order_rand',$oid)->update([
+                 'status'=>1,
+             ]);
+        if ($res) {
+            $log_str .= " Edit ORDER SUCCESS!<<<<< \n\n";//修改订单成功
+            file_put_contents('logs/alipay.log',$log_str,FILE_APPEND);
+        }else{
+            $log_str .= " Edit ORDER Failed!<<<<< \n\n";//修改订单失败
+            file_put_contents('logs/alipay.log',$log_str,FILE_APPEND);
+        }
         
-        echo 'success';
+        echo 'success';//出的所有问题看日志就行,这里为了不让阿里云发送消息都是success了
     }
     /**
      * 验证签名
@@ -285,9 +301,7 @@ class AlipayController extends Controller
             //转换为openssl格式密钥
             $res = openssl_get_publickey($pubKey);
         }
-        
-       
-        
+            
         //转换为openssl格式密钥
         $res = openssl_get_publickey($pubKey);
         ($res) or die('支付宝RSA公钥错误。请检查公钥文件格式是否正确');
