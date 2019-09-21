@@ -303,37 +303,30 @@
 										<form action="#">
 											<div class="input-field">
 												<h5>姓名*</h5>
-												<input type="text" class="validate" required>
+												<input type="text" class="validate" readonly="readonly" required>
 											</div>
 											<div class="input-field">
-												<h5>邮箱*</h5>
-												<input type="email" class="validate" required>
-											</div>
-											<div class="input-field">
-												<h5>公司名称</h5>
-												<input type="text" class="validate">
-											</div>
-											<div class="input-field">
-												<h5>地址*</h5>
-												<input type="text" class="validate" required>
+												<h5>省*</h5>
+												<input type="text" class="validate" readonly="readonly" required>
 											</div>
 											<div class="input-field">
 												<h5>城镇/城市*</h5>
-												<input type="text" class="validate" required>
+												<input type="text" class="validate" readonly="readonly" required>
 											</div>
 											<div class="input-field">
-												<h5>国家*</h5>
-												<input type="text" class="validate" required>
+												<h5>区*</h5>
+												<input type="text" class="validate" readonly="readonly" required>
 											</div>
 											<div class="input-field">
-												<h5>邮政编码*</h5>
-												<input type="number" class="validate" required>
+												<h5>详细地址*</h5>
+												<input type="text" class="validate" readonly="readonly" required>
 											</div>
 											<div class="input-field">
 												<h5>电话*</h5>
-												<input type="number" class="validate" required>
+												<input type="number" class="validate" readonly="readonly" required>
 											</div>
-											<a href="" class="btn button-default">CONTINUE</a>
+											<a href="" class="btn button-default">确认</a>
+											<a href="" class="btn button-default">返回</a>
 										</form>
 									</div>
 								</div>
@@ -367,6 +360,18 @@
 													<div class="col s7">
 														<div class="cart-product">
 															<a href="">Jackets Men's</a>
+														</div>
+													</div>
+												</div>
+												<div class="cart-details">
+													<div class="col s5">
+														<div class="cart-product">
+															<h5>订单编号</h5>
+														</div>
+													</div>
+													<div class="col s7">
+														<div class="cart-product">
+															<a href="">15485613653165adadv</a>
 														</div>
 													</div>
 												</div>
@@ -405,19 +410,7 @@
 												<div class="cart-details">
 													<div class="col s8">
 														<div class="cart-product">
-															<h5>运费:</h5>
-														</div>
-													</div>
-													<div class="col s4">
-														<div class="cart-product">
-															<span>$5.00</span>
-														</div>
-													</div>
-												</div>
-												<div class="cart-details">
-													<div class="col s8">
-														<div class="cart-product">
-															<h5>总计</h5>
+															<h5>合计</h5>
 														</div>
 													</div>
 													<div class="col s4">
@@ -428,7 +421,7 @@
 												</div>
 											</div>
 										</div>
-										<a href="" class="btn button-default button-fullwidth">CONTINUE</a>
+										<a href="" class="btn button-default button-fullwidth">付款</a>
 									</div>
 								</div>
 							</li>
