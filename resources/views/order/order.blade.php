@@ -297,7 +297,7 @@
 					<div class="col s12">
 						<ul class="collapsible" data-collapsible="accordion">
 							<li>
-								<div class="collapsible-header"><h5>1 - 订单信息</h5></div>
+								<div class="collapsible-header"><h5>收货信息</h5></div>
 								<div class="collapsible-body">
 									<div class="billing-information">
 										<form action="#">
@@ -333,7 +333,7 @@
 							</li>
 							
 							<li>
-								<div class="collapsible-header"><h5>2 - 订单审核</h5></div>
+								<div class="collapsible-header"><h5>订单信息</h5></div>
 								<div class="collapsible-body">
 									<div class="order-review">
 										<div class="row">
