@@ -40,8 +40,8 @@
 							<div class="col s5">
 								<h5>商品价格</h5>
 							</div>
-							<div class="col s7 price">
-								<h5>${{$v['g_price']}}</h5>
+							<div class="col s7">
+								<h5 class="price">￥{{$v['g_price']}}</h5>
 							</div>
 						</div>
 						<div class="row">
@@ -64,7 +64,7 @@
 						<h6>Total</h6>
 					</div>
 					<div class="col s5">
-						<h6>$41.00</h6>
+						<h6>41.00</h6>
 					</div>
 				</div>
 			</div>
@@ -74,16 +74,25 @@
 @endsection
 <script type="text/javascript" src="/index/js/jquery.min.js"></script>
 <script type="text/javascript">
+
 	$(document).on("blur",'.num',function(){
-		// alert(1);
 		//获取到价格
-		var price = $(this).parent().next().children('.price').children().text();
+		var price = $(this).parent().next().children().children('.price').text();
+		// alert(price);
 		price = price.substr(1);
 		//获取数量
 		var num = $(this).children().val();
 		//计算总价
-		var prices = price * num;
-		alert(prices);
-
+		var price_do = "￥" + price * num;
+		//替换价格
+		$(this).parent().next().children().children('.price').text(price_do);
 	})
+	//获取总价 循环获得单价 
+	// $(function(){
+	// 	var prices = $('.price').text();
+	// 	// alert(prices);	
+	// 	$.each(prices,function(i,v){
+	// 		alert(v);
+	// 	})
+	// })
 </script>
