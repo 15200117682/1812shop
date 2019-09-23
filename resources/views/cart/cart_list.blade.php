@@ -68,7 +68,8 @@
 					</div>
 				</div>
 			</div>
-			<button type='button' class="btn button-default" id='sum'>结算</button>
+			<!-- <button class="btn button-default" id='sum'>结算</button> -->
+			<a href="/order_code/order_show" class="btn button-default" id='sum'>结算</a>
 		</div>
 	</div>
 @endsection
