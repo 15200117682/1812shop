@@ -69,7 +69,7 @@
 				</div>
 			</div>
 			<!-- <button class="btn button-default" id='sum'>结算</button> -->
-			<a href="/order_code/order_show" class="btn button-default" id='sum'>结算</a>
+			<a href="/order_code/order_show?id={{$g_id}}" class="btn button-default" id='sum'>结算</a>
 		</div>
 	</div>
 @endsection

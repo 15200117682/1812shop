@@ -10,10 +10,10 @@ class IndexController extends Controller
     public function index()
     {
     	$statusWhere=[
-    		['status','=',1]
+    		"status"=>1
     	];
     	$codeWhere=[
-    		['status','=',2]
+    		"status"=>0
     	];
     	$goodsFound=GoodsModel::where($statusWhere)->get()->toArray();
     	// dd($goodsFound);
