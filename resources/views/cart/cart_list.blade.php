@@ -64,7 +64,7 @@
 						<h6>Total</h6>
 					</div>
 					<div class="col s5">
-						<h6>41.00</h6>
+						<h6 id="total">￥41.00</h6>
 					</div>
 				</div>
 			</div>
@@ -86,13 +86,23 @@
 		var price_do = "￥" + price * num;
 		//替换价格
 		$(this).parent().next().children().children('.price').text(price_do);
+
+		var total = 0;
+		$('.price').each(function(){
+			var prices = $(this).text();
+			prices = prices.substr(1); 
+			total += parseInt(prices); 
+		})
+		$('#total').html('￥'+total);
 	})
 	//获取总价 循环获得单价 
 	// $(function(){
-	// 	var prices = $('.price').text();
-	// 	// alert(prices);	
-	// 	$.each(prices,function(i,v){
-	// 		alert(v);
+	// 	var total = 0;
+	// 	$('.price').each(function(){
+	// 		var prices = $(this).text();
+	// 		prices = prices.substr(1); 
+	// 		total += parseInt(prices); 
 	// 	})
+	// 	$('#total').html('￥'+total);
 	// })
 </script>
