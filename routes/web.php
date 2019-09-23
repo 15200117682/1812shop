@@ -18,11 +18,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
+//前台
 Route::get('/','index\IndexController@index');//前台首页
-
-
+Route::prefix('index')->group(function(){
+    Route::get('productlist','lists\ListController@productlist');//前台列表
+    Route::get('cateList','lists\ListController@cateList');//前台根据分类展示对应的分类列表
+    Route::get('singledetail','lists\ListController@singledetail');//详情页
+});
+    
 
 Route::prefix('cart')->group(function () {
     Route::get('cart_list','Cart\CartController@cart_list');//购物车页面
