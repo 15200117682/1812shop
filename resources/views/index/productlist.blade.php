@@ -1,6 +1,5 @@
 @extends('layouts.index_layout')
 @section('content')
-
 	<!-- menu -->
 	<div class="menus" id="animatedModal2">
 		<div class="close-animatedModal2 close-icon">
@@ -25,7 +24,7 @@
 								<div class="icon">
 									<i class="fa fa-bars"></i>
 								</div>
-								产品清单
+								Product List
 							</div>
 						</a>
 					</div>
@@ -57,7 +56,7 @@
 								<div class="icon">
 									<i class="fa fa-shopping-cart"></i>
 								</div>
-								购物车
+								Cart
 							</div>
 						</a>
 					</div>
@@ -67,7 +66,7 @@
 								<div class="icon">
 									<i class="fa fa-credit-card"></i>
 								</div>
-								订单查看
+								Checkout
 							</div>
 						</a>
 					</div>
@@ -121,7 +120,7 @@
 								<div class="icon">
 									<i class="fa fa-user"></i>
 								</div>
-								关于我们
+								About Us
 							</div>
 						</a>
 					</div>
@@ -143,7 +142,7 @@
 								<div class="icon">
 									<i class="fa fa-cog"></i>
 								</div>
-								设置
+								Settings
 							</div>
 						</a>
 					</div>
@@ -153,7 +152,7 @@
 								<div class="icon">
 									<i class="fa fa-sign-in"></i>
 								</div>
-								登录
+								Login
 							</div>
 						</a>
 					</div>
@@ -163,7 +162,7 @@
 								<div class="icon">
 									<i class="fa fa-user-plus"></i>
 								</div>
-								注册
+								Register
 							</div>
 						</a>
 					</div>
@@ -286,172 +285,46 @@
 	<!-- end cart menu -->
 
 	
-	<!-- checkout -->
-	<div class="checkout pages section">
+	<!-- blog -->
+	<div class="pages section">
 		<div class="container">
-			<div class="pages-head">
-				<h3>付款处</h3>
-			</div>
-			<div class="checkout-content">
+			<div class="blog">
+				@foreach($select as $k=>$v)
 				<div class="row">
 					<div class="col s12">
-						<ul class="collapsible" data-collapsible="accordion">
-							<li>
-								<div class="collapsible-header"><h5>收货地址信息</h5></div>
-								<div class="collapsible-body">
-									<div class="billing-information">
-										<form action="#">
-											<div class="input-field">
-												<h5>省*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
-											<div class="input-field">
-												<h5>城镇/城市*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
-											<div class="input-field">
-												<h5>区*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
-											<div class="input-field">
-												<h5>姓名*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
-											<div class="input-field">
-												<h5>详细地址*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
-											<div class="input-field">
-												<h5>电话*</h5>
-												<input type="number" class="validate" readonly="readonly" required>
-											</div>
-											<a href="" class="btn button-default">确认</a>
-											<a href="" class="btn button-default">修改收货地址</a>
-										</form>
-									</div>
+						<div class="blog-content">
+							<img src="img/blog3.png" alt="">
+							<div class="blog-detailt">
+								<h5><a href="blog-single.html">{{$v['g_name']}}</a></h5>
+								<div class="date">
+									<span><i class="fa fa-calendar"></i>{{$v['created_at']}}</span>
 								</div>
-							</li>
-							<li>
-								<div class="collapsible-header"><h5>订单信息</h5></div>
-								<div class="collapsible-body">
-									<div class="order-review">
-										<div class="row">
-											<div class="col s12">
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>Image</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<img src="img/shop1.png" alt="">
-														</div>
-													</div>
-												</div>
-												<div class="divider"></div>
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>名称</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<a href="">Jackets Men's</a>
-														</div>
-													</div>
-												</div>
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>订单编号</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<a href="" id="f1">15485613653165adadv</a>
-														</div>
-													</div>
-												</div>
-												<div class="divider"></div>
-												<div class="divider"></div>
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>单价</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<span>$26.00</span>
-														</div>
-													</div>
-												</div>
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>总价</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<span>$26.00</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="order-review final-price">
-										<div class="row">
-											<div class="col s12">
-												<div class="cart-details">
-													<div class="col s8">
-														<div class="cart-product">
-															<h5>合计</h5>
-														</div>
-													</div>
-													<div class="col s4">
-														<div class="cart-product">
-															<span id="f2">$31.00</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<a href="javascript:;" class="btn button-default button-fullwidth" id="pay3">付款</a>
-									</div>
-								</div>
-							</li>
-						</ul>
+								<p>{{$v['g_describe']}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				@endforeach
+				<div class="row">
+					<div class="col s12">
+						<div class="pagination-blog">
+							<ul>
+								<li class="active"><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">3</a></li>
+								<li><a href="">4</a></li>
+								<li><a href="">5</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- end checkout -->
+	<!-- end blog -->
 	
 
-	
-	
-
-</body>
-</html>
-<!-- 崔健 -->
-<!-- -----------------------start------------------------------------ -->
-<script src="/index/js/jquery.min.js"></script>
-<script type="text/javascript">
-	//支付点击事件
-	$("#pay3").click(function(){
-		var order = $("#f1").text()
-		var amount = $("#f2").text()
-		amount = amount.substr(1)
-
-		location.href = "/alipay/pay?order_rand="+order+"&order_amount="+amount;
-	})
-</script>
-<!-- ------------------------end------------------------------------ -->
-
-
+	<!-- loader -->
+	<div id="fakeLoader"></div>
+	<!-- end loader -->
 @endsection
