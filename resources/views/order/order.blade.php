@@ -297,14 +297,10 @@
 					<div class="col s12">
 						<ul class="collapsible" data-collapsible="accordion">
 							<li>
-								<div class="collapsible-header"><h5>收货信息</h5></div>
+								<div class="collapsible-header"><h5>收货地址信息</h5></div>
 								<div class="collapsible-body">
 									<div class="billing-information">
 										<form action="#">
-											<div class="input-field">
-												<h5>姓名*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
 											<div class="input-field">
 												<h5>省*</h5>
 												<input type="text" class="validate" readonly="readonly" required>
@@ -318,6 +314,10 @@
 												<input type="text" class="validate" readonly="readonly" required>
 											</div>
 											<div class="input-field">
+												<h5>姓名*</h5>
+												<input type="text" class="validate" readonly="readonly" required>
+											</div>
+											<div class="input-field">
 												<h5>详细地址*</h5>
 												<input type="text" class="validate" readonly="readonly" required>
 											</div>
@@ -326,12 +326,11 @@
 												<input type="number" class="validate" readonly="readonly" required>
 											</div>
 											<a href="" class="btn button-default">确认</a>
-											<a href="" class="btn button-default">返回</a>
+											<a href="" class="btn button-default">修改收货地址</a>
 										</form>
 									</div>
 								</div>
 							</li>
-							
 							<li>
 								<div class="collapsible-header"><h5>订单信息</h5></div>
 								<div class="collapsible-body">
