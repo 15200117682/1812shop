@@ -11,15 +11,18 @@ class ListController extends Controller
 	//列表
 	public function productlist(){
 		$select=GoodsModel::get()->toArray();
-		// dd($select);
 		return view('index/productlist',['select'=>$select]);
 	}   
 	//分类列表
-	public function cateList(){
+	public function cateList(Request $request){
 		$allselect=CateModel::get()->toArray();
 		$rules=self::ruleLevel($allselect);
-		// dd($rules);
-		return view('index/cateList',['rules'=>$rules]);
+		$cate_id=request()->input('cate_id');
+		$cateIdWhere=[
+			['cate_id','=',$cate_id]
+		];
+		$goodsSelect=GoodsModel::where($cateIdWhere)->get()->toArray();
+		return view('index/cateList',['rules'=>$rules,'goodsSelect'=>$goodsSelect]);
 	}
 	//分装递归方法
 	public static function ruleLevel($allselect,$p_id=0,$level=1){

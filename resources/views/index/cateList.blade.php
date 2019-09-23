@@ -290,20 +290,24 @@
 			<div class="pages-head">
 				<h3>PRODUCT LIST</h3>
 			</div>
+			<form action="">
 			<div class="input-field">
-				<select>
+				<select id="select">
 					@foreach($rules as $k=>$v)
-						<option value="{{$v['cate_id']}}">{{str_repeat('---',$v['level']*5)}}{{$v['cate_name']}}</option>
+						<option value="{{$v['cate_id']}}">{{str_repeat('-',$v['level']*5)}}{{$v['cate_name']}}
+						</option>
 					@endforeach
 				</select>	
 			</div>
+			</form>
+			@foreach($goodsSelect as $k=>$v)
 			<div class="row">
 				<div class="col s6">
 					<div class="content">
 						<img src="img/product-new2.png" alt="">
-						<h6><a href="/index/singledetail">Fashion Men's</a></h6>
+						<h6><a href="/index/singledetail">{{$v['g_name']}}</a></h6>
 						<div class="price">
-							$20 <span>$28</span>
+							${{$v['g_price']}} <span id="sp">${{$v['g_prices']}}</span>
 						</div>
 						<button class="btn button-default">ADD TO CART</button>
 					</div>
@@ -326,10 +330,22 @@
 	<!-- loader -->
 	<div id="fakeLoader"></div>
 	<!-- end loader -->
-	<script src="/index/js/jquery.min/js"></script>
+	<script src="/index/js/jquery.min.js"></script>
 	<script>
-		$(document).on("click",'option',function(){
-			alert(1);
+		$(function(){
+			$(document).on("change","#select",function(){
+				var cate_id=$(this).val();
+				$.ajax({
+					url:"{{url('index/cateList')}}",
+					type:'get',
+					data:{cate_id:cate_id},
+					dataType:'json',
+					success:function(res){
+						console.log(res);
+					}
+				})
+			})
 		})
+			
 	</script>
 @endsection
