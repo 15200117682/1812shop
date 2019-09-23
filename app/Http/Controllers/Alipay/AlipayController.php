@@ -40,7 +40,6 @@ class AlipayController extends Controller
     public function pay(Request $request)
     {
         $data = $request->all();
-        // dd($data);die;
         if (!isset($data['order_amount']) || !isset($data['order_rand'])) {
             echo "参数错误,格式你懂得!";die;
         }
