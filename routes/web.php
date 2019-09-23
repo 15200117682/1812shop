@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','index\IndexController@index');//前台首页
 
 
-
+//范景辉
 Route::prefix('cart')->group(function () {
     Route::get('cart_list','Cart\CartController@cart_list');//购物车页面
 });

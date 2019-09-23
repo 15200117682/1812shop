@@ -17,7 +17,7 @@
 								<h5>Image</h5>
 							</div>
 							<div class="col s7">
-								<img src="/index/img/cart1.png" alt="">
+								<img src="/uploads/{{$v['g_img']}}" alt="" style="width: 500;height: 400">
 							</div>
 						</div>
 						<div class="row">
@@ -61,14 +61,14 @@
 				
 				<div class="row">
 					<div class="col s7">
-						<h6>Total</h6>
+						<h6>总价</h6>
 					</div>
 					<div class="col s5">
 						<h6 id="total">￥41.00</h6>
 					</div>
 				</div>
 			</div>
-			<button class="btn button-default">Process to Checkout</button>
+			<button type='button' class="btn button-default" id='sum'>结算</button>
 		</div>
 	</div>
 @endsection
@@ -86,7 +86,8 @@
 		var price_do = "￥" + price * num;
 		//替换价格
 		$(this).parent().next().children().children('.price').text(price_do);
-
+		
+		//获取总价
 		var total = 0;
 		$('.price').each(function(){
 			var prices = $(this).text();
@@ -105,4 +106,17 @@
 	// 	})
 	// 	$('#total').html('￥'+total);
 	// })
+
+	//结算
+	// $(document).on("click",'#sum',function(){
+	// 	$.ajax({
+	// 		url:"{{url('/order_code/order_show')}}",
+	// 		type:'get',
+	// 		success:function(res){
+	// 			console.log(res);
+	// 		}
+	// 	})
+	// })
+	
 </script>
+
