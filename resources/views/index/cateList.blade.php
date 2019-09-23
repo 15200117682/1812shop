@@ -300,7 +300,7 @@
 				</select>	
 			</div>
 			</form>
-			@foreach($goodsSelect as $k=>$v)
+			<!-- @foreach($goodsSelect as $k=>$v)
 			<div class="row">
 				<div class="col s6">
 					<div class="content">
@@ -313,6 +313,7 @@
 					</div>
 				</div>
 			</div>
+			@endforeach -->
 			<div class="pagination-product">
 				<ul>
 					<li class="active">1</li>
@@ -325,8 +326,6 @@
 		</div>
 	</div>
 	<!-- end product -->
-
-	
 	<!-- loader -->
 	<div id="fakeLoader"></div>
 	<!-- end loader -->
@@ -335,6 +334,7 @@
 		$(function(){
 			$(document).on("change","#select",function(){
 				var cate_id=$(this).val();
+				alert(cate_id);
 				$.ajax({
 					url:"{{url('index/cateList')}}",
 					type:'get',
@@ -343,9 +343,10 @@
 					success:function(res){
 						console.log(res);
 					}
-				})
-			})
+				});
+			})	
 		})
 			
 	</script>
+
 @endsection

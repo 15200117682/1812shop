@@ -293,7 +293,7 @@
 				<div class="row">
 					<div class="col s12">
 						<div class="blog-content">
-							<img src="img/blog3.png" alt="">
+							<img src="/uploads/{{$v['g_img']}}" alt="">
 							<div class="blog-detailt">
 								<h5><a href="blog-single.html">{{$v['g_name']}}</a></h5>
 								<div class="date">
