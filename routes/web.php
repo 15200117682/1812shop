@@ -18,10 +18,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
+//前台
 Route::get('/','index\IndexController@index');//前台首页
 
+
+
+
+Route::prefix('index')->group(function(){
+    Route::get('productlist','lists\ListController@productlist');//前台列表
+    Route::get('cateList','lists\ListController@cateList');//前台根据分类展示对应的分类列表
+    Route::get('singledetail','lists\ListController@singledetail');//详情页
+});
+    
 
 //范景辉
 Route::prefix('cart')->group(function () {
@@ -61,7 +69,8 @@ Route::prefix('alipay')->group(function(){
 //订单部分
 
 Route::prefix('order_code')->group(function(){
-    Route::get('order_show','Order\OrderController@order_show');   //订单展示
-    Route::get('create','Order\OrderController@order_show');  //订单展示
+    Route::get('order_show','Order\OrderController@order_show');            //订单展示
+    Route::get('order_address','Order\OrderController@order_address');    //订单地址展示
+    Route::get('create','Order\OrderController@order_show');                //订单添加
+    Route::get('getArea','Order\OrderController@getArea');     //三级联动      
 });
-

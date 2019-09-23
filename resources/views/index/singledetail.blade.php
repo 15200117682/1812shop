@@ -25,7 +25,7 @@
 								<div class="icon">
 									<i class="fa fa-bars"></i>
 								</div>
-								产品清单
+								Product List
 							</div>
 						</a>
 					</div>
@@ -57,7 +57,7 @@
 								<div class="icon">
 									<i class="fa fa-shopping-cart"></i>
 								</div>
-								购物车
+								Cart
 							</div>
 						</a>
 					</div>
@@ -67,7 +67,7 @@
 								<div class="icon">
 									<i class="fa fa-credit-card"></i>
 								</div>
-								订单查看
+								Checkout
 							</div>
 						</a>
 					</div>
@@ -121,7 +121,7 @@
 								<div class="icon">
 									<i class="fa fa-user"></i>
 								</div>
-								关于我们
+								About Us
 							</div>
 						</a>
 					</div>
@@ -143,7 +143,7 @@
 								<div class="icon">
 									<i class="fa fa-cog"></i>
 								</div>
-								设置
+								Settings
 							</div>
 						</a>
 					</div>
@@ -153,7 +153,7 @@
 								<div class="icon">
 									<i class="fa fa-sign-in"></i>
 								</div>
-								登录
+								Login
 							</div>
 						</a>
 					</div>
@@ -163,7 +163,7 @@
 								<div class="icon">
 									<i class="fa fa-user-plus"></i>
 								</div>
-								注册
+								Register
 							</div>
 						</a>
 					</div>
@@ -286,172 +286,75 @@
 	<!-- end cart menu -->
 
 	
-	<!-- checkout -->
-	<div class="checkout pages section">
+	<!-- single post -->
+	<div class="pages section">
 		<div class="container">
-			<div class="pages-head">
-				<h3>付款处</h3>
-			</div>
-			<div class="checkout-content">
-				<div class="row">
-					<div class="col s12">
-						<ul class="collapsible" data-collapsible="accordion">
-							<li>
-								<div class="collapsible-header"><h5>收货地址信息</h5></div>
-								<div class="collapsible-body">
-									<div class="billing-information">
-										<form action="#">
-											<div class="input-field">
-												<h5>省*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
-											<div class="input-field">
-												<h5>城镇/城市*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
-											<div class="input-field">
-												<h5>区*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
-											<div class="input-field">
-												<h5>姓名*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
-											<div class="input-field">
-												<h5>详细地址*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
-											</div>
-											<div class="input-field">
-												<h5>电话*</h5>
-												<input type="number" class="validate" readonly="readonly" required>
-											</div>
-											<a href="" class="btn button-default">确认</a>
-											<a href="" class="btn button-default">修改收货地址</a>
-										</form>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="collapsible-header"><h5>订单信息</h5></div>
-								<div class="collapsible-body">
-									<div class="order-review">
-										<div class="row">
-											<div class="col s12">
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>Image</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<img src="img/shop1.png" alt="">
-														</div>
-													</div>
-												</div>
-												<div class="divider"></div>
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>名称</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<a href="">Jackets Men's</a>
-														</div>
-													</div>
-												</div>
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>订单编号</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<a href="" id="f1">15485613653165adadv</a>
-														</div>
-													</div>
-												</div>
-												<div class="divider"></div>
-												<div class="divider"></div>
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>单价</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<span>$26.00</span>
-														</div>
-													</div>
-												</div>
-												<div class="cart-details">
-													<div class="col s5">
-														<div class="cart-product">
-															<h5>总价</h5>
-														</div>
-													</div>
-													<div class="col s7">
-														<div class="cart-product">
-															<span>$26.00</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="order-review final-price">
-										<div class="row">
-											<div class="col s12">
-												<div class="cart-details">
-													<div class="col s8">
-														<div class="cart-product">
-															<h5>合计</h5>
-														</div>
-													</div>
-													<div class="col s4">
-														<div class="cart-product">
-															<span id="f2">$31.00</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<a href="javascript:;" class="btn button-default button-fullwidth" id="pay3">付款</a>
-									</div>
-								</div>
-							</li>
+			<div class="blog-single">
+				<img src="img/blog1.png" alt="">
+				<div class="blog-single-content">
+					<h5>Fashion Men's</h5>
+					<div class="date">
+						<span><i class="fa fa-calendar"></i> Dec 22, 2018</span>
+					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi error quibusdam culpa assumenda maiores ea dicta fuga a itaque rerum deserunt, incidunt, nulla, vero amet sapiente reiciendis. Perspiciatis debitis, accusamus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eligendi porro deleniti quisquam omnis rem quibusdam corporis alias, et quae, assumenda unde pariatur vitae placeat veritatis nam quia, velit delectus.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ut vitae recusandae perferendis, temporibus, ullam, tenetur eius necessitatibus aliquam sequi, eum atque ratione ipsam in aliquid vero numquam id minus!</p>	
+					<div class="share-post">	
+						<ul>
+							<li><a href=""><i class="fa fa-facebook"></i></a></li>
+							<li><a href=""><i class="fa fa-twitter"></i></a></li>
+							<li><a href=""><i class="fa fa-google"></i></a></li>
+							<li><a href=""><i class="fa fa-linkedin"></i></a></li>
 						</ul>
+					</div>
+				</div>	
+				<div class="comment">
+					<h5>1 Comments</h5>
+					<div class="comment-details">
+						<div class="row">
+							<div class="col s3">
+								<img src="img/user-comment.jpg" alt="">
+							</div>
+							<div class="col s9">
+								<div class="comment-title">
+									<span><strong>John Doe</strong> | Juni 5, 2016 at 9:24 am | <a href="">Reply</a></span>
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis accusantium corrupti asperiores et praesentium dolore.</p>
+							</div>
+						</div>
+					</div>
+				</div>	
+				<div class="comment-form">
+					<div class="comment-head">
+						<h5>Post Comment in Below</h5>
+						<p>Lorem ipsum dolor sit amet consectetur*</p>
+					</div>
+					<div class="row">
+						<form class="col s12 form-details">
+							<div class="input-field">
+								<input type="text" required class="validate" placeholder="NAME">
+							</div>
+							<div class="input-field">
+								<input type="email" class="validate" placeholder="EMAIL" required>
+							</div>
+							<div class="input-field">
+								<input type="text" class="validate" placeholder="SUBJECT" required>
+							</div>
+							<div class="input-field">
+								<textarea name="textarea-message" id="textarea1" cols="30" rows="10" class="materialize-textarea" class="validate" placeholder="YOUR COMMENT"></textarea>
+							</div>
+							<div class="form-button">
+								<div class="btn button-default">POST COMMENTS</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
 	</div>
-	<!-- end checkout -->
+	<!-- end single post -->
 	
 
-	
-	
-
-</body>
-</html>
-<!-- 崔健 -->
-<!-- -----------------------start------------------------------------ -->
-<script src="/index/js/jquery.min.js"></script>
-<script type="text/javascript">
-	//支付点击事件
-	$("#pay3").click(function(){
-		var order = $("#f1").text()
-		var amount = $("#f2").text()
-		amount = amount.substr(1)
-
-		location.href = "/alipay/pay?order_rand="+order+"&order_amount="+amount;
-	})
-</script>
-<!-- ------------------------end------------------------------------ -->
-
-
+	<!-- loader -->
+	<div id="fakeLoader"></div>
+	<!-- end loader -->
 @endsection
