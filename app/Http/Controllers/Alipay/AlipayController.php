@@ -44,10 +44,10 @@ class AlipayController extends Controller
             echo "参数错误,格式你懂得!";die;
         }
         
-        $sum = $data['order_amount'];  //订单总金额
+        $amount = $data['order_amount'];  //订单总金额
         $oid = $data['order_rand'];  //订单号
       
-        if (empty($sum) || empty($oid)) {
+        if (empty($amount) || empty($oid)) {
             echo "参数不能为空,格式你懂得!";die;
         }
        
@@ -56,6 +56,10 @@ class AlipayController extends Controller
         //验证订单状态 是否已支付 是否是有效订单
         //$order_info = OrderModel::where(['oid'=>$oid])->first();
         //判断订单是否已被支付
+        //判断订单金额是否正确
+        // if ($order_info['order_amount'] != $amount) {
+        //     die("订单金额不符");
+        // }
         // if($order_info['order_pay']==1){
         //     die("订单已支付，请勿重复支付");
         // }
@@ -72,7 +76,7 @@ class AlipayController extends Controller
         $bizcont = [
             'subject'           => '1812shop--' .$oid,
             'out_trade_no'      => $oid,
-            'total_amount'      => $sum,
+            'total_amount'      => $amount,
             'product_code'      => 'FAST_INSTANT_TRADE_PAY',
         ];
         //公共参数
@@ -214,7 +218,7 @@ class AlipayController extends Controller
         // //获取订单号
         // $oid = $_GET['out_trade_no'];
         // //修改订单状态
-        // $res = DB::table('order')->where('order_rand',$oid)->update([
+        // $res = OrderModel::where('order_rand',$oid)->update([
         //          'status'=>1,
         //      ]);
         // if (!$res) {
