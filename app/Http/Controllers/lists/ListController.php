@@ -44,5 +44,5 @@ class ListController extends Controller
 		$g_id=request()->input('g_id');
 		dd($g_id);
 		return view('index/singledetail');
-	}                                                                                                  
+	}                                                                                             
 }

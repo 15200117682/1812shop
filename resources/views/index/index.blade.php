@@ -390,23 +390,11 @@
                         <div class="price">
                             ${{$v['g_price']}} <span>${{$v['g_prices']}}</span>
                         </div>
-                        <button class="btn button-default">ADD TO CART</button>
+                        <button class="btn button-default"><a href="cart/cart_list/g_id={{$v['g_id']}}">ADD TO CART</a></button>
                     </div>
                 </div>
                 @endforeach
             </div>
-            <!-- <div class="row margin-bottom">
-                <div class="col s6">
-                    <div class="content">
-                        <img src="img/product-new3.png" alt="">
-                        <h6><a href="">Fashion Men's</a></h6>
-                        <div class="price">
-                            $20 <span>$28</span>
-                        </div>
-                        <button class="btn button-default">ADD TO CART</button>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
     <!-- end product -->
@@ -440,7 +428,7 @@
                         <div class="price">
                             ${{$v['g_price']}} <span>${{$v['g_prices']}}</span>
                         </div>
-                        <button class="btn button-default">ADD TO CART</button>
+                        <button class="btn button-default"><a href="cart/cart_list/g_id={{$v['g_id']}}">ADD TO CART</a></button>
                     </div>
                 </div>
                 @endforeach
