@@ -371,7 +371,7 @@
 													</div>
 													<div class="col s7">
 														<div class="cart-product">
-															<a href="">15485613653165adadv</a>
+															<a href="" id="f1">15485613653165adadv</a>
 														</div>
 													</div>
 												</div>
@@ -415,13 +415,13 @@
 													</div>
 													<div class="col s4">
 														<div class="cart-product">
-															<span>$31.00</span>
+															<span id="f2">$31.00</span>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-										<a href="" class="btn button-default button-fullwidth">付款</a>
+										<a href="javascript:;" class="btn button-default button-fullwidth" id="pay3">付款</a>
 									</div>
 								</div>
 							</li>
@@ -439,10 +439,20 @@
 
 </body>
 </html>
+<!-- 崔健 -->
+<!-- -----------------------start------------------------------------ -->
+<script src="/index/js/jquery.min.js"></script>
+<script type="text/javascript">
+	//支付点击事件
+	$("#pay3").click(function(){
+		var order = $("#f1").text()
+		var amount = $("#f2").text()
+		amount = amount.substr(1)
 
-
-
-
+		location.href = "/alipay/pay?order_rand="+order+"&order_amount="+amount;
+	})
+</script>
+<!-- ------------------------end------------------------------------ -->
 
 
 @endsection
