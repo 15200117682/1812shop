@@ -22,6 +22,9 @@ class ListController extends Controller
 			['cate_id','=',$cate_id]
 		];
 		$goodsSelect=GoodsModel::where($cateIdWhere)->get()->toArray();
+		if(request()->ajax()){
+			return json_encode(['code'=>1,'goodsSelect'=>$goodsSelect]);
+		}
 		return view('index/cateList',['rules'=>$rules,'goodsSelect'=>$goodsSelect]);
 	}
 	//分装递归方法
@@ -37,7 +40,9 @@ class ListController extends Controller
 		return $info;
 	}
 	//详情页
-	public function singledetail(){
+	public function singledetail(Request $request){
+		$g_id=request()->input('g_id');
+		dd($g_id);
 		return view('index/singledetail');
 	}                                                                                                  
 }
