@@ -67,5 +67,6 @@ Route::prefix('order_code')->group(function(){
     Route::get('order_show','Order\OrderController@order_show');            //订单展示
     Route::get('order_address','Order\OrderController@order_address');    //订单地址展示
     Route::get('create','Order\OrderController@order_show');                //订单添加
-    Route::get('getArea','Order\OrderController@getArea');     //三级联动      
+    Route::get('getArea','Order\OrderController@getArea');     //三级联动
+    Route::post('address','Order\OrderController@address');              //收获地址添加
 });
