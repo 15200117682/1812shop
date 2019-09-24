@@ -20,6 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //前台
 Route::get('/','index\IndexController@index');//前台首页
+
+
+
+
 Route::prefix('index')->group(function(){
     Route::get('productlist','lists\ListController@productlist');//前台列表
     Route::get('cateList','lists\ListController@cateList');//前台根据分类展示对应的分类列表
@@ -27,6 +31,7 @@ Route::prefix('index')->group(function(){
 });
     
 
+//范景辉
 Route::prefix('cart')->group(function () {
     Route::get('cart_list','Cart\CartController@cart_list');//购物车页面
 });
@@ -67,5 +72,6 @@ Route::prefix('order_code')->group(function(){
     Route::get('order_show','Order\OrderController@order_show');            //订单展示
     Route::get('order_address','Order\OrderController@order_address');    //订单地址展示
     Route::get('create','Order\OrderController@order_show');                //订单添加
-    Route::get('getArea','Order\OrderController@getArea');     //三级联动      
+    Route::get('getArea','Order\OrderController@getArea');     //三级联动
+    Route::post('address','Order\OrderController@address');              //收获地址添加
 });

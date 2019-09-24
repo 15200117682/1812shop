@@ -300,11 +300,11 @@
 				</select>	
 			</div>
 			</form>
+			<div class="row" id="rows">
 			@foreach($goodsSelect as $k=>$v)
-			<div class="row">
 				<div class="col s6">
 					<div class="content">
-						<img src="img/product-new2.png" alt="">
+						<img src="/uploads/{{$v['g_img']}}" alt="">
 						<h6><a href="/index/singledetail">{{$v['g_name']}}</a></h6>
 						<div class="price">
 							${{$v['g_price']}} <span id="sp">${{$v['g_prices']}}</span>
@@ -312,6 +312,7 @@
 						<button class="btn button-default">ADD TO CART</button>
 					</div>
 				</div>
+			@endforeach
 			</div>
 			<div class="pagination-product">
 				<ul>
@@ -325,8 +326,6 @@
 		</div>
 	</div>
 	<!-- end product -->
-
-	
 	<!-- loader -->
 	<div id="fakeLoader"></div>
 	<!-- end loader -->
@@ -335,17 +334,32 @@
 		$(function(){
 			$(document).on("change","#select",function(){
 				var cate_id=$(this).val();
+				// alert(cate_id);
 				$.ajax({
 					url:"{{url('index/cateList')}}",
 					type:'get',
 					data:{cate_id:cate_id},
 					dataType:'json',
 					success:function(res){
-						console.log(res);
+						if(res.code==1){
+							var str ="";
+							$.each(res.goodsSelect,function(k,v){
+								str += '<div class="col s6">\
+											<div class="content">\
+												<img src="/uploads/'+v.g_img+'" alt="">\
+												<h6><a href="/index/singledetail/'+v.g_id+'">'+v.g_name+'</a></h6>\
+												<div class="price">\
+													 '+v.g_price+'<span id="sp">$'+v.g_prices+'</span>\
+												</div>\
+												<button class="btn button-default">ADD TO CART</button>\
+											</div>\
+										</div>';
+							});
+							$("#rows").html(str);
+						}
 					}
-				})
-			})
+				});
+			})	
 		})
-			
 	</script>
 @endsection

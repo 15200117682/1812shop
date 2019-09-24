@@ -2,22 +2,54 @@
 
 namespace App\Http\Controllers\Order;
 
+use App\Model\AddressModel;
 use App\Model\CateModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\OrderModel;
 use App\Model\AreaModel;
+
 class OrderController extends Controller
 {
+
+    //构造方法
+    public function __construct()
+    {
+        $this->status=[
+            "200"=>"ok",
+            "40000"=>"未知原因",
+            "40001"=>"未知原因，错误无法解释",
+        ];
+    }
+
+    /**
+     * @param null $code
+     * @param null $msg
+     * @param null $data
+     * @return false|string
+     */
+    public function fail($code = null, $msg = null, $data = null)
+    {
+        $response = [
+            "code" => $code,
+            "msg" => $msg,
+            "data" => $data
+        ];
+        return json_encode($response, JSON_UNESCAPED_UNICODE);
+    }
+
     //订单展示
     public function order_show()
     {
         return view("order.order");
     }
+
+    //订单页面
     public function order_address()
     {
         $addmodel = AreaModel::where(['pid'=>0])->get()->toArray();
-        return view("order.order_address",['data'=>$addmodel]);
+        $data=AddressModel::get()->toArray();
+        return view("order.order_address",['data'=>$addmodel,"address"=>$data]);
     }
     /** 三级联动获取区域 */
     public function getArea(Request $request){
@@ -37,13 +69,41 @@ class OrderController extends Controller
         ];
         return $arr;
     }
-    /** 获取区域信息 */
-    public function getAreaInfo($id){
-        $where=[
-            'pid'=>$id
-        ];
-        $info=AreaModel::where($where)->get()->toArray();
-        return $info;
+
+    //执行收货地址添加入库
+    public function address(Request $request)
+    {
+        $info=$request->input();//接受所有数据
+        if(empty($info["name"]) || empty($info["tel"]) || empty($info["details"]) || $info["province"]=="0" || $info["city"]=="0" || $info["district"]=="0"){
+
+            return $this->fail("40001",$this->status["40001"]);     //缺少参数，返回错误
+
+        }
+        if($info["default"]==1){
+            AddressModel::where(["u_id"=>1])->update(["default"=>0]);
+        }
+        $arr=[
+            "u_id"=>1,          //--------------###############用户id，未对接
+            "tel"=>$info["tel"],
+            "province"=>$info["province"],
+            "city"=>$info["city"],
+            "county"=>$info["district"],
+            "detail"=>$info["details"],
+            "default"=>$info["default"],
+            "status"=>1,
+            "u_time"=>time(),
+            "man"=>$info["name"],
+        ];      //拼装数据
+        $res=AddressModel::insertGetId($arr);
+        if($res){
+
+            return $this->fail("200",$this->status["200"],$data=$res);  //ok，返回参数
+
+        }else{
+
+            return $this->fail("40000",$this->status["40000"],$data=$res);  //未知错误，无法入库
+
+        }
     }
 
 

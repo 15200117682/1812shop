@@ -20,7 +20,6 @@
 	<link rel="stylesheet" href="/index/css/style.css">
 	
 	<link rel="shortcut icon" href="/index/img/favicon.png">
-
 </head>
 <body>
 	<!-- navbar top -->
