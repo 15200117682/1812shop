@@ -22,10 +22,14 @@ class OrderController extends Controller
     /** 三级联动获取区域 */
     public function getArea(Request $request){
         $id = $request->input("id");
-        $where=[
-            'pid'=>$id
-        ];
-        $info=AreaModel::where($where)->get();
+        if(empty($id)){
+            $info=AreaModel::where(['pid'=>0])->get()->toArray();
+        }else{
+            $where=[
+                'pid'=>$id
+            ];
+            $info=AreaModel::where($where)->get()->toArray();
+        }
         $arr=[
             "code"=>200,
             "msg"=>"ok",

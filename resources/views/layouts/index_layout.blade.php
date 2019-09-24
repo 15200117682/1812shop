@@ -40,7 +40,7 @@
 	<div class="side-nav-panel-right">
 		<ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
 			<li class="profil">
-				<img src="img/profile.jpg" alt="">
+				<img src="img/preview.jpg" alt="">
 				@if(Session::get('u_name') == "")
 				<h2>未登录</h2>
 				@else

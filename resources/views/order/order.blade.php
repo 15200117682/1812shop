@@ -1,6 +1,22 @@
 @extends('layouts.index_layout')
 @section('content')
 
+	<script>
+		window.onload=function(){
+			var oSr=document.getElementById('sr');
+			var oBtn=document.getElementById('btn');
+			var kg=true;
+			oBtn.onclick=function(){
+				if(kg){
+					oSr.disabled=false;
+				}else{
+					oSr.disabled=true;
+				}
+				kg=!kg;
+			}
+		}
+	</script>
+
 	<!-- menu -->
 	<div class="menus" id="animatedModal2">
 		<div class="close-animatedModal2 close-icon">
@@ -303,30 +319,30 @@
 										<form action="#">
 											<div class="input-field">
 												<h5>省*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
+												<input type="text" class="validate" id="sr" disabled="" required>
 											</div>
 											<div class="input-field">
 												<h5>城镇/城市*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
+												<input type="text" class="validate" id="sr1" disabled="" required>
 											</div>
 											<div class="input-field">
 												<h5>区*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
+												<input type="text" class="validate" id="sr" disabled="" required>
 											</div>
 											<div class="input-field">
 												<h5>姓名*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
+												<input type="text" class="validate" id="sr" disabled="" required>
 											</div>
 											<div class="input-field">
 												<h5>详细地址*</h5>
-												<input type="text" class="validate" readonly="readonly" required>
+												<input type="text" class="validate" id="sr" disabled="" required>
 											</div>
 											<div class="input-field">
 												<h5>电话*</h5>
-												<input type="number" class="validate" readonly="readonly" required>
+												<input type="number" class="validate" id="sr" disabled="" required>
 											</div>
-											<a href="" class="btn button-default">确认</a>
-											<a href="" class="btn button-default">修改收货地址</a>
+											<a class="btn button-default" id="btn">确认</a>
+											<!-- <a href="order_address" class="btn button-default">修改</a> -->
 										</form>
 									</div>
 								</div>

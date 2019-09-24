@@ -3,9 +3,6 @@
 
 
 <body>
-
-	
-
 	<!-- navbar bottom -->
 	<div class="navbar-bottom">
 		<div class="row">
@@ -324,41 +321,17 @@
 				<div class="row">
 					<div class="col s12">
 						<form action="send-mail.php" class="contact-form" id="contact-form" method="post">
-
-    <tr>
-        <td width="135" align="right">配送地区</td>
-        <td colspan="3" style="font-family:'宋体';">
-            <select  name="add_province" id="add_province" style="width: 215px;height: 30px;color: #f86e09;" class="area">
-                <option value="0" selected="selected">请选择...</option>
-                
-                    @foreach ($data as $k=>$v)
-                        <option value="{{$v['id']}}">{{$v['name']}}</option>    
-                    @endforeach
-
-                </select>
-                <select  name="add_city" id="add_city" style="width: 215px;height: 30px;color: #f86e09;" class="area">
-
-                <option value="0" selected="selected">请选择...</option>
-
-                </select>
-                <select  name="add_district" id="add_district" style="width: 215px;height: 30px;color: #f86e09;" class="area">
-                <option value="0" selected="selected">请选择...</option>
-            </select>
-            （必填）
-        </td>
-    </tr>
+							<div >
+							</div>
 
 							<div class="form-group" id="name-field">
 								<input type="text" class="validate" id="form-name" name="form-name" placeholder="名称" required>
 							</div>
 							<div class="form-group" id="email-field">
-								<input type="email" class="validate" id="form-email" name="form-email" placeholder="邮箱" required>
+								<input type="email" class="validate" id="form-email" name="form-email" placeholder="手机" required>
 							</div>
 							<div class="form-group" id="subject-field">
-								<input type="text" class="validate" id="form-subject" name="form-subject" placeholder="SUBJECT" required>
-							</div>
-							<div class="form-group" id="message-field">
-								<textarea name="form-message" id="form-message" cols="30" rows="10" class="materialize-textarea" placeholder="YOUR MESSAGE" required></textarea>
+								<input type="text" class="validate" id="form-subject" name="form-subject" placeholder="详细地址" required>
 							</div>
 							<div class="form-group">
 								<button class="btn button-default" type="submit" id="submit" name="submit">确认</button>
@@ -372,13 +345,34 @@
 	<!-- end contact us -->
 <!-- loader -->
 	<div id="fakeLoader"></div>
+
 	<!-- end loader -->
 </body>
+
 </html>
 <script src="/js/jquery-3.2.1.min.js"></script>
 <script>
         $(function(){
-            //三级联动
+            alert(1);
+            $.ajax({
+				url:"/order_code/getArea",
+				method:"get",
+				dataType:"json",
+				success:function (res) {
+				    console.log(res);
+				    	var data=res.data;
+                        var _option="<option value='0'>请选择...</option>";
+
+						$.each(data,function(key,val){
+							_option+="<option value='"+val.id+"'>"+val.name+"</option>";
+						});
+
+						console.log(_option);
+                        $("#add_province").html(_option);
+				}
+
+			});
+           /* //三级联动
             $('.area').change(function(){
                 var _this=$(this);
                 _this.nextAll('select').html("<option value='0'>请选择...</option>");
@@ -395,15 +389,55 @@
                         // for(var i in res){
                         //     _option+="<option value='"+res.i.id+"'>"+res.i.name+"</option>";
                         // }
-                        
                         $.each(res,function(key,val){
-                            _option+="<option value='"+res.data.id+"'>"+res.data.name+"</option>";
+                            _option+='<option value="'+res.data.id+'">'+res.data.name+'</option>';
                         });
-                        
+
+
                         _this.next('select').html(_option);
                     }
                 })
+            });*/
+            //表单提交
+            $('#btn').click(function(){
+                //获取数据
+                var add_province=$('#add_province').val();
+                var add_city=$('#add_city').val();
+                var add_district=$('#add_district').val();
+                var add_name=$('#add_name').val();
+                var add_tel=$('#add_tel').val();
+                var add_details=$('#add_details').val();
+                var send_time=$('#send_time').val();
+                var is_default=$('#is_default').prop('checked');
+                $.post(
+                    "{:url('address/address')}",
+                    {add_province:add_province,add_city:add_city,add_district:add_district,add_name:add_name,add_tel:add_tel,add_details:add_details,send_time:send_time,is_default:is_default},
+                    function(res){
+                        layer.msg(res.font,{icon:res.code});
+                        if(res.code==1){
+                            location.href="{:url('address/address')}";
+                        }
+                    },
+                    'json'
+                )
             })
         })
 </script>
 @endsection
+<tr>
+	<td width="135" align="right">配送地区</td>
+	<td colspan="3" style="font-family:'宋体';">
+		<select  class="area" id="add_province">
+			<option value="0" selected="selected">请选择...</option>
+		</select>
+		<select  name="add_city" id="add_city" style="width: 215px;height: 30px;color: #f86e09;" class="area">
+
+			<option value="0" selected="selected">请选择...</option>
+
+		</select>
+		<select  name="add_district" id="add_district" style="width: 215px;height: 30px;color: #f86e09;" class="area">
+			<option value="0" selected="selected">请选择...</option>
+		</select>
+		（必填）
+	</td>
+</tr>
